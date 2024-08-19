@@ -1,0 +1,272 @@
+{%extends 'base.html'%}
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home <img src="{% static 'imgs/icons/home.png' %}" alt="home"></a></li>
+                <li><a href="#about">Sobre mí <img src="{% static 'imgs/icons/about.png' %}" alt="about"></a></li>
+                <li><a href="#skills">Habilidades <img src="{% static 'imgs/icons/skill.png' %}" alt="skill"></a></li>
+                <li><a href="https://www.tolucatecnm.mx/programa/13/tics-ingenieria-en-tecnologias-de-la-informacion-y-comunicaciones"
+                        target="_blank">Formación <img src="{% static 'imgs/icons/school.png' %}" alt="school"></a></li>
+                <li><a href="#projects">Proyectos <img src="{% static 'imgs/icons/project.png' %}" alt="project"></a>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home" class="home-section">
+            <div class="intro">
+                <h1>Hola! Soy <span class="typed-text"></span><span class="cursor">&nbsp;</span></h1>
+                <p class="title"></p>
+                <p>Soy un desarrollador web con experiencia en una variedad de tecnologías y herramientas. He trabajado
+                    con lenguajes de programación como Java, JavaScript y Python, y tengo habilidades avanzadas en
+                    frameworks como Django. Mi dominio en HTML, CSS y JavaScript me permite crear interfaces de usuario
+                    atractivas y funcionales.</p>
+                <div class="buttons">
+                    <a href="{% static 'files/CVGabiñoHernandezLuisRene.pdf' %}" class="btn"
+                        download="Descargar CV">DESCARGAR CV</a>
+                    <a href="#contact" class="btn">CONTACTO</a>
+                </div>
+            </div>
+            <div class="image">
+                <img src="{% static 'imgs/profile.jpg' %}" alt="Imagen de perfil">
+            </div>
+        </section>
+        <section id="about" class="about-section">
+            <h2>Sobre mí</h2>
+            <p>Estudiante De Ingenieria a punto de egresar, amante del ambito de la programacion web como framework
+                favorito django y con conocimientos tecnicos en lenjuajes de programacion y desarollo de interfaces de
+                escritorio y de estancia web </p>
+        </section> -->
+<!--Seccion de habilidades-->
+<!-- <section id="skills" class="skills-section">
+            <h2>Habilidades</h2>
+            <div class="skills-container">
+                <div class="skill">
+                    <h3><img src="{% static 'imgs/icons/html.svg' %}" alt="HTML Icon"> HTML</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3><img src="{% static 'imgs/icons/css.svg' %}" alt="CSS Icon"> CSS</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3><img src="{% static 'imgs/icons/js.svg' %}" alt="JavaScript Icon"> JavaScript</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3><img src="{% static 'imgs/icons/django.svg' %}" alt="Django Icon"> Django</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 70%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3><img src="{% static 'imgs/icons/archlinux.svg' %}" alt="Linux Icon"> Archlinux</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 70%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3><img src="{% static 'imgs/icons/bootstrap.svg' %}" alt="Bootstrap Icon"> Bootstrap</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3><img src="{% static 'imgs/icons/git.svg' %}" alt="Git Icon"> Git</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 50%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3><img src="{% static 'imgs/icons/java.svg' %}" alt="Java Icon"> Java</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3><img src="{% static 'imgs/icons/mariadb.svg' %}" alt="Mariadb Icon"> MariaDB</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3><img src="{% static 'imgs/icons/postgres.svg' %}" alt="Postgres Icon"> Postgres</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3><img src="{% static 'imgs/icons/python.svg' %}" alt="Python Icon">Python</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+ -->
+
+<!-- Sección de proyectos -->
+<!-- <section id="projects" class="projects-section">
+            <h2>Proyectos</h2>
+            <div class="projects-container">
+                {% for obj in projects %}
+                <div class="projects-container">
+                    <div class="project-card">
+                        <h3>{{obj.title}}</h3>
+                        <p>{{obj.describe}}</p>
+                        <a href="{{obj.url}}"></a>
+                        <div class="image_project">
+                            <img src="{{obj.image.url}}" style="width: 25rem;">
+                        </div>
+
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contacto</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn">Enviar</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="social-media">
+            <a href="https://www.linkedin.com/in/luis-rene-gabi%C3%B1o-hdz/" target="_blank"><img
+                    src="{% static 'imgs/icons/linkedin.svg' %}" alt="LinkedIn"></a>
+            <a href="https://github.com/Sren94" target="_blank"><img src="{% static 'imgs/icons/github.svg' %}"
+                    alt="GitHub"></a>
+            <a href="https://www.instagram.com/sren_94/" target="_blank"><img
+                    src="{% static 'imgs/icons/instagram.svg' %}" alt="Insta"></a>
+            <p>@2024 Sren94 Todos Los Derechos Reservador </p>
+
+        </div>
+    </footer>
+    <script>
+
+    </script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html> -->
+
+
+{%block title%}
+Mi Portafolio
+{%endblock title%}
+
+{%block content%}
+
+{% include 'includes/header.html' %}
+<main>
+    <section id="home" class="home-section">
+        <div class="intro">
+            <h1>Hola! Soy <span class="typed-text"></span><span class="cursor">&nbsp;</span></h1>
+            <p class="title"></p>
+            <p>Soy un desarrollador web con experiencia en una variedad de tecnologías y herramientas. He trabajado
+                con lenguajes de programación como Java, JavaScript y Python, y tengo habilidades avanzadas en
+                frameworks como Django. Mi dominio en HTML, CSS y JavaScript me permite crear interfaces de usuario
+                atractivas y funcionales.</p>
+            <div class="buttons">
+                <a href="{% static 'files/CVGabiñoHernandezLuisRene.pdf' %}" class="btn"
+                    download="Descargar CV">DESCARGAR CV</a>
+                <a href="#contact" class="btn">CONTACTO</a>
+            </div>
+        </div>
+        <div class="image">
+            <img src="{% static 'imgs/profile.jpg' %}" alt="Imagen de perfil">
+        </div>
+    </section>
+    <section id="about" class="about-section">
+        <h2>Sobre mí</h2>
+        <ul>
+            <li> <p>Estudiante De Ingenieria a punto de egresar, amante del ambito de la programacion web como framework
+                favorito django y con conocimientos tecnicos en lenjuajes de programacion y desarollo de interfaces de
+                escritorio y de estancia web asi como apasionado por aprender nuevas tecnicas y tecnologias</p></li>
+                <li>
+                    <p>Soy una persona autodidacta sobre todo en resolusion de problemas para abordar necesidades y encontrar una solucion 
+                    </p>
+                </li>
+                <li>
+                    <p>Mis conocimientos en programacion, base de datos estructuradas y semi-estructuradas son porpocionales a la experiencia que tengo 
+                        sobre mis proyectos 
+                    </p>
+                </li>
+        </ul>
+           
+
+            
+    </section>
+    {% include 'myProfile/skill.html' %}
+
+    <!-- Sección de proyectos -->
+    <section id="projects" class="projects-section">
+        <h2>Proyectos</h2>
+        <div class="projects-container">
+            {% for obj in projects %}
+            <div class="projects-container">
+                <div class="project-card">
+                    <h3>{{obj.title}}</h3>
+                    <p>{{obj.describe}}</p>
+                    <a href="{{obj.url}}"></a>
+                    <div class="image_project">
+                        <img src="{{obj.image.url}}" >
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </section>
+    <section id="certifications" class="certifications-section">
+        <h2>Certificaciones</h2>
+        <div class="certifications-container">
+            <div class="certification-card">
+                <h3>Certificación en Django</h3>
+                <p>Emitido por: Udemy</p>
+                <p>Año: 2023</p>
+            </div>
+            <div class="certification-card">
+                <h3>Certificación en JavaScript</h3>
+                <p>Emitido por: Coursera</p>
+                <p>Año: 2022</p>
+            </div>
+            <!-- Añade más certificaciones aquí -->
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contacto</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Enviar</button>
+        </form>
+    </section>
+</main>
+{% include 'includes/footer.html' %}
+{%endblock content%}
