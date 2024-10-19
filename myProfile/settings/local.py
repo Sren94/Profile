@@ -14,7 +14,7 @@ DEBUG = env.bool('DEBUG', default=False)
 #DEBUG = True
 
 ALLOWED_HOSTS = [env('ALLOWED_HOSTS')]
-
+CSRF_TRUSTED_ORIGINS = [env('CSRF_TRUSTED_ORIGINS')]
 DATABASES = {
     'default': dj_database_url.config(
         default=os.getenv('DATABASE_URL')
