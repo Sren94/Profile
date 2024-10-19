@@ -21,12 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 #SECRET_KEY = 'django-insecure-lzhsaphvh5#fkds4tfjz(*eoy=mr(of&i%mi9x%u&p-d67jfe='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['profile-production-29c2.up.railway.app', 'localhost', '127.0.0.1']
-
-
-
+#DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -36,12 +31,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'applications.myProfile'
-]
-INSTALLED_APPS += [
+    'applications.myProfile',
     'cloudinary_storage',
     'cloudinary',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

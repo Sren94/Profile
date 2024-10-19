@@ -14,7 +14,7 @@ DEBUG = env.bool('DEBUG', default=False)
 #DEBUG = True
 
 ALLOWED_HOSTS = [env('ALLOWED_HOSTS')]
-CSRF_TRUSTED_ORIGINS = [env('CSRF_TRUSTED_ORIGINS')]
+#CSRF_TRUSTED_ORIGINS = [env('CSRF_TRUSTED_ORIGINS')]
 DATABASES = {
     'default': dj_database_url.config(
         default=os.getenv('DATABASE_URL')
@@ -39,13 +39,13 @@ DATABASES = {
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-STATIC_URL = 'static/'
-STATICFILES_DIRS=[os.path.join(BASE_DIR, "static")]
+STATIC_URL = '/static/'
+#STATICFILES_DIRS=[os.path.join(BASE_DIR, "static")]
 
 #aqui se da registro de los archivos media 
 #y esto sirve para direccionar los recursos
 #se deben de registrar en esta carpeta
-MEDIA_URL='media/'
+MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
