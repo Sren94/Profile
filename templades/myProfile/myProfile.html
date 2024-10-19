@@ -192,8 +192,7 @@ Mi Portafolio
                 frameworks como Django. Mi dominio en HTML, CSS y JavaScript me permite crear interfaces de usuario
                 atractivas y funcionales.</p>
             <div class="buttons">
-                <a href="{% static 'files/CVGabiñoHernandezLuisRene.pdf' %}" class="btn"
-                    download="Descargar CV">DESCARGAR CV</a>
+                <a href="{% static 'files/CVGabiñoHernandezLuisRene.pdf' %}" class="btn" target="_blank">Ver CV</a>
                 <a href="#contact" class="btn">CONTACTO</a>
             </div>
         </div>
@@ -224,6 +223,9 @@ Mi Portafolio
     {% include 'myProfile/skill.html' %}
 
     <!-- Sección de proyectos -->
+   
+    
+    {% if projects %}
     <section id="projects" class="projects-section">
         <h2>Proyectos</h2>
         <div class="projects-container">
@@ -243,22 +245,9 @@ Mi Portafolio
 
         </div>
     </section>
-    <section id="certifications" class="certifications-section">
-        <h2>Certificaciones</h2>
-        <div class="certifications-container">
-            <div class="certification-card">
-                <h3>Certificación en Django</h3>
-                <p>Emitido por: Udemy</p>
-                <p>Año: 2023</p>
-            </div>
-            <div class="certification-card">
-                <h3>Certificación en JavaScript</h3>
-                <p>Emitido por: Coursera</p>
-                <p>Año: 2022</p>
-            </div>
-            <!-- Añade más certificaciones aquí -->
-        </div>
-    </section>
+    {% endif %}
+        
+    {% include 'myProfile/certifications.html' %}
     <section id="contact">
         <h2>Contacto</h2>
         <form method="post">

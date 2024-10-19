@@ -253,9 +253,11 @@ main {
 }
 .certifications-container{
     display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-around;
 }
 .certifications-section{
-    width: 50rem;
+    width: 70rem;
     padding: 2em;
     text-align: center;
     background-color: var(--secondary-color);
