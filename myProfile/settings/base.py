@@ -37,6 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'applications.myProfile'
 ]
+INSTALLED_APPS += [
+    'cloudinary_storage',
+    'cloudinary',
+]
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'tu_cloud_name',
+    'API_KEY': 'tu_api_key',
+    'API_SECRET': 'tu_api_secret',
+}
+
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
