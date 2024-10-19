@@ -13,7 +13,7 @@ DEBUG = env.bool('DEBUG', default=False)
 
 #DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [env('RAILWAY_PUBLIC_DOMAIN')]
 
 DATABASES = {
     'default': dj_database_url.config(
