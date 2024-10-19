@@ -2,7 +2,7 @@
 from .base import *
 import os
 import environ
-
+import dj_database_url
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
@@ -16,6 +16,9 @@ DEBUG = env.bool('DEBUG', default=False)
 ALLOWED_HOSTS = []
 
 DATABASES = {
+    'default': dj_database_url.config(
+        default=env('DATABASE_URL')
+    )
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
     #     'NAME':env('NAME_DATABASE'),
@@ -24,14 +27,14 @@ DATABASES = {
     #     'HOST':env('HOST'),
     #     'PORT':'5432',
     # }
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':env('NAME_DATABASE'),
-        'USER':env('DB_USER'),
-        'PASSWORD':env('DB_PASSWORD'),
-        'HOST':'localhost',
-        'PORT':'5432',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME':env('NAME_DATABASE'),
+    #     'USER':env('DB_USER'),
+    #     'PASSWORD':env('DB_PASSWORD'),
+    #     'HOST':'localhost',
+    #     'PORT':'5432',
+    # }
 }
 
 # Static files (CSS, JavaScript, Images)
