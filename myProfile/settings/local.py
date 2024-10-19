@@ -17,7 +17,7 @@ ALLOWED_HOSTS = []
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=env('DATABASE_URL')
+        default=os.getenv('DATABASE_URL')
     )
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
