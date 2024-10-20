@@ -36,14 +36,13 @@ cloudinary.config(
     api_secret=env('API_SECRET'),
     secure=True,
 )
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# Configuración de almacenamiento para archivos estáticos
+STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
-# URLs y rutas para archivos estáticos y media
-STATIC_URL = '/static/'
+# Configuración de almacenamiento para archivos media
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
