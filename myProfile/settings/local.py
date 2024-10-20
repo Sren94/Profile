@@ -3,6 +3,7 @@ import os
 import environ
 import dj_database_url
 
+# Cargar las variables de entorno
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
@@ -11,10 +12,10 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env.bool('DEBUG', default=False)
 
 # Hosts permitidos
-ALLOWED_HOSTS = env('ALLOWED_HOSTS')
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 # Orígenes de confianza para CSRF
-CSRF_TRUSTED_ORIGINS = env('CSRF_TRUSTED_ORIGINS')
+CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[])
 
 # Configuración de la base de datos
 DATABASES = {
@@ -37,6 +38,7 @@ STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 # Configuración de email
@@ -47,7 +49,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
-# Configuración adicional en modelos
+# Configuración adicional
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Seguridad para producción
@@ -95,6 +97,7 @@ CSRF_COOKIE_SECURE = True
 
 # # Static files (CSS, JavaScript, Images)
 # # https://docs.djangoproject.com/en/5.0/howto/static-files/
+# STATIC_URL = '/static/'
 # #STATICFILES_DIRS=[os.path.join(BASE_DIR, "static")]
 
 # #aqui se da registro de los archivos media 
@@ -130,9 +133,3 @@ CSRF_COOKIE_SECURE = True
 # DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
-
-# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-# # Configuración para archivos estáticos si también los subes a Cloudinary
-# STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-# STATIC_URL = '/static/'
