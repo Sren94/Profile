@@ -3,7 +3,6 @@ import os
 import environ
 import dj_database_url
 
-# Cargar las variables de entorno
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
@@ -12,10 +11,10 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env.bool('DEBUG', default=False)
 
 # Hosts permitidos
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
+ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 
 # Orígenes de confianza para CSRF
-CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[])
+CSRF_TRUSTED_ORIGINS = env('CSRF_TRUSTED_ORIGINS')
 
 # Configuración de la base de datos
 DATABASES = {
@@ -38,8 +37,6 @@ STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# Si tienes archivos estáticos locales, añade esta configuración (opcional)
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 # Configuración de email
@@ -50,7 +47,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
-# Configuración adicional
+# Configuración adicional en modelos
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Seguridad para producción
