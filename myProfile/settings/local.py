@@ -2,6 +2,11 @@ from .base import *
 import os
 import environ
 import dj_database_url
+import cloudinary
+# Import the cloudinary.api for managing assets
+import cloudinary.api
+# Import the cloudinary.uploader for uploading assets
+import cloudinary.uploader
 
 # Cargar las variables de entorno
 env = environ.Env()
@@ -25,11 +30,12 @@ DATABASES = {
 }
 
 # Configuración de Cloudinary
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': env('CLOUD_NAME'),
-    'API_KEY': env('API_KEY'),
-    'API_SECRET': env('API_SECRET'),
-}
+cloudinary.config(
+    cloud_name= env('CLOUD_NAME'),
+    api_key= env('API_KEY'),
+    api_secret=env('API_SECRET'),
+    secure=True,
+)
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
@@ -45,7 +51,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = True 
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
