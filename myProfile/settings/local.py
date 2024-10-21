@@ -66,6 +66,12 @@ MEDIA_URL = '/media/'
 # Directorio local donde se guardarán los archivos media
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+#scrip para subir pdf
+
+result = cloudinary.uploader.upload("static/files/CVGabiñoHernandezLuisRene.pdf", resource_type="raw")
+print(result['secure_url'])  # Esto te dará la URL del PDF
+
+
 # Si estás usando Cloudinary para archivos media
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Configuración de email
