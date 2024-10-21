@@ -41,12 +41,21 @@ cloudinary.config(
     secure=True,
 )
 #configuracion actualizada 
-STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
+#STATIC_URL = '/static/'
+#MEDIA_URL = '/media/'
+STATIC_URL = 'https://res.cloudinary.com/dj3octk7q/static/'
+MEDIA_URL = 'https://res.cloudinary.com/dj3octk7q/media/'
+
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Almacenamiento de archivos estáticos en Cloudinary
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
+# Almacenamiento específico para archivos multimedia en Cloudinary
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Almacenamiento específico para videos
 VIDEO_FILE_STORAGE = 'cloudinary_storage.storage.VideoMediaCloudinaryStorage'
 
