@@ -30,18 +30,26 @@ cloudinary.config(
     api_secret=env('API_SECRET'),
     secure=True,
 )
+# Configuración de Cloudinary
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': env('CLOUD_NAME'),
+    'API_KEY': env('API_KEY'),
+    'API_SECRET': env('API_SECRET'),
+}
 
-# Configuración de almacenamiento para archivos estáticos
-STATIC_URL = 'https://res.cloudinary.com/dj3octk7q/'
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-
-# Configuración de almacenamiento para archivos estáticos
-STATIC_URL = 'https://res.cloudinary.com/dj3octk7q/'
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-
-# Configuración de almacenamiento para archivos media
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-MEDIA_URL = 'https://res.cloudinary.com/dj3octk7q/image/upload/'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+
+# URLs y rutas para archivos estáticos y media
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Almacenamiento específico para videos
+VIDEO_FILE_STORAGE = 'cloudinary_storage.storage.VideoMediaCloudinaryStorage'
+# Almacenamiento específico para archivos de texto
+RAW_FILE_STORAGE = 'cloudinary_storage.storage.RawMediaCloudinaryStorage'
 
 # Configuración de email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
