@@ -50,26 +50,34 @@ cloudinary.config(
 
 # Ruta para servir los archivos estáticos
 
-#STATIC_URL = '/static/'
-STATIC_URL = f'https://res.cloudinary.com/{env("CLOUD_NAME")}/static/'
-# Aquí puedes listar las carpetas de donde recoger los archivos estáticos
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+# #STATIC_URL = '/static/'
+# STATIC_URL = f'https://res.cloudinary.com/{env("CLOUD_NAME")}/static/'
+# # Aquí puedes listar las carpetas de donde recoger los archivos estáticos
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-# Directorio donde Django recogerá todos los archivos estáticos cuando ejecutes collectstatic
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# # Directorio donde Django recogerá todos los archivos estáticos cuando ejecutes collectstatic
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Si estás usando Cloudinary para archivos estáticos
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+# # Si estás usando Cloudinary para archivos estáticos
+# STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
-# URL para los archivos media
-#MEDIA_URL = '/media/'
-STATIC_URL = f'https://res.cloudinary.com/{env("CLOUD_NAME")}/media/'
-# Directorio local donde se guardarán los archivos media
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# # URL para los archivos media
+# #MEDIA_URL = '/media/'
+# STATIC_URL = f'https://res.cloudinary.com/{env("CLOUD_NAME")}/media/'
+# # Directorio local donde se guardarán los archivos media
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Si estás usando Cloudinary para archivos media
+#DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# Archivos estáticos
+STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+
+# Archivos multimedia
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+MEDIA_URL = '/media/'
 # Configuración de email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
