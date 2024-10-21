@@ -3,11 +3,7 @@ import os
 import environ
 import dj_database_url
 import cloudinary
-# Import the cloudinary.api for managing assets
-import cloudinary.api
-# Import the cloudinary.uploader for uploading assets
-import cloudinary.uploader
-
+import cloudinary_storage
 # Cargar las variables de entorno
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
@@ -28,56 +24,25 @@ DATABASES = {
         default=os.getenv('DATABASE_URL')
     )
 }
-CLOUDINARY_URL= env('CLOUDINARY_URL')
-# Configuración de Cloudinary
 cloudinary.config(
-    cloud_name= env('CLOUD_NAME'),
-    api_key= env('API_KEY'),
+    cloud_name=env('CLOUD_NAME'),
+    api_key=env('API_KEY'),
     api_secret=env('API_SECRET'),
     secure=True,
 )
+
 # Configuración de almacenamiento para archivos estáticos
-#STATIC_URL = '/static/'
-
-#STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-
-
-# Configuración de almacenamiento para archivos media
-
-#MEDIA_URL = '/media/'
-
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-
-# Ruta para servir los archivos estáticos
-
-# #STATIC_URL = '/static/'
-# STATIC_URL = f'https://res.cloudinary.com/{env("CLOUD_NAME")}/static/'
-# # Aquí puedes listar las carpetas de donde recoger los archivos estáticos
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-
-# # Directorio donde Django recogerá todos los archivos estáticos cuando ejecutes collectstatic
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# # Si estás usando Cloudinary para archivos estáticos
-# STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-
-# # URL para los archivos media
-# #MEDIA_URL = '/media/'
-# STATIC_URL = f'https://res.cloudinary.com/{env("CLOUD_NAME")}/media/'
-# # Directorio local donde se guardarán los archivos media
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
-# Si estás usando Cloudinary para archivos media
-#DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-# Archivos estáticos
-STATIC_URL = '/static/'
+STATIC_URL = 'https://res.cloudinary.com/dj3octk7q/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
-# Archivos multimedia
+# Configuración de almacenamiento para archivos estáticos
+STATIC_URL = 'https://res.cloudinary.com/dj3octk7q/'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+
+# Configuración de almacenamiento para archivos media
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-MEDIA_URL = '/media/'
+MEDIA_URL = 'https://res.cloudinary.com/dj3octk7q/image/upload/'
+
 # Configuración de email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
