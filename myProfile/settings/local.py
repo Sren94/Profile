@@ -13,7 +13,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env.bool('DEBUG', default=False)
 
 # Hosts permitidos
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=["localhost"])
 
 # Orígenes de confianza para CSRF
 CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[])
@@ -24,23 +24,21 @@ DATABASES = {
         default=os.getenv('DATABASE_URL')
     )
 }
+
+# Configuración de Cloudinary
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': env('CLOUD_NAME'),
+#     'API_KEY': env('API_KEY'),
+#     'API_SECRET': env('API_SECRET'),
+#     'PREFIX': 'static/'
+# }
+
 cloudinary.config(
     cloud_name=env('CLOUD_NAME'),
     api_key=env('API_KEY'),
     api_secret=env('API_SECRET'),
     secure=True,
 )
-# Configuración de Cloudinary
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': env('CLOUD_NAME'),
-    'API_KEY': env('API_KEY'),
-    'API_SECRET': env('API_SECRET'),
-}
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-
-# URLs y rutas para archivos estáticos y media
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -48,6 +46,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Almacenamiento específico para videos
 VIDEO_FILE_STORAGE = 'cloudinary_storage.storage.VideoMediaCloudinaryStorage'
+
 # Almacenamiento específico para archivos de texto
 RAW_FILE_STORAGE = 'cloudinary_storage.storage.RawMediaCloudinaryStorage'
 
@@ -66,7 +65,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SECURE_SSL_REDIRECT = env.bool('SECURE_SSL_REDIRECT', default=False)
 SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', default=False)
 CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=False)
-
 
 # from .base import *
 # import os
