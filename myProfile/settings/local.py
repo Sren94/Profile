@@ -66,6 +66,14 @@ MEDIA_URL = '/media/'
 # Directorio local donde se guardarán los archivos media
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+import cloudinary.uploader
+
+def subir_pdf():
+    result = cloudinary.uploader.upload(
+        'static/files/CVGabinoHernandezLuisRene.pdf',  # Ruta completa del archivo PDF
+        resource_type='raw'  # Se especifica el tipo 'raw' para archivos que no son imágenes
+    )
+    print(result['secure_url'])
 
 
 # Si estás usando Cloudinary para archivos media
