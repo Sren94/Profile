@@ -39,7 +39,7 @@ cloudinary.config(
 # Configuración de almacenamiento para archivos estáticos
 #STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+#STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_URL = 'https://res.cloudinary.com/dj3octk7q/static/'
 
 # Configuración de almacenamiento para archivos media
