@@ -13,7 +13,8 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env.bool('DEBUG', default=False)
 
 # Hosts permitidos
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=["localhost"])
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=["localhost", "sren94.up.railway.app"])
+#ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=["localhost"])
 
 # Orígenes de confianza para CSRF
 CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[])
