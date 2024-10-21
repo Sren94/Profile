@@ -28,7 +28,7 @@ DATABASES = {
         default=os.getenv('DATABASE_URL')
     )
 }
-
+CLOUDINARY_URL= env('CLOUDINARY_URL')
 # Configuración de Cloudinary
 cloudinary.config(
     cloud_name= env('CLOUD_NAME'),
@@ -49,8 +49,9 @@ cloudinary.config(
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 # Ruta para servir los archivos estáticos
-STATIC_URL = '/static/'
 
+#STATIC_URL = '/static/'
+STATIC_URL = f'https://res.cloudinary.com/{env("CLOUD_NAME")}/static/'
 # Aquí puedes listar las carpetas de donde recoger los archivos estáticos
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
@@ -61,18 +62,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
 # URL para los archivos media
-MEDIA_URL = '/media/'
-
+#MEDIA_URL = '/media/'
+STATIC_URL = f'https://res.cloudinary.com/{env("CLOUD_NAME")}/media/'
 # Directorio local donde se guardarán los archivos media
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-import cloudinary.uploader
-
-result = cloudinary.uploader.upload(
-        'static/files/CvLuisReneGH.pdf',  # Ruta completa del archivo PDF
-        resource_type='raw'  # Se especifica el tipo 'raw' para archivos que no son imágenes
-    )
-print(result['secure_url'])
 
 # Si estás usando Cloudinary para archivos media
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
