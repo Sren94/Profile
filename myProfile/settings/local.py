@@ -38,16 +38,36 @@ cloudinary.config(
 )
 # Configuración de almacenamiento para archivos estáticos
 #STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+
 #STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STATIC_URL = 'https://res.cloudinary.com/dj3octk7q/static/'
+
 
 # Configuración de almacenamiento para archivos media
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 #MEDIA_URL = '/media/'
-MEDIA_URL = 'https://res.cloudinary.com/dj3octk7q/media/'
+
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
+# Ruta para servir los archivos estáticos
+STATIC_URL = '/static/'
+
+# Aquí puedes listar las carpetas de donde recoger los archivos estáticos
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
+# Directorio donde Django recogerá todos los archivos estáticos cuando ejecutes collectstatic
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Si estás usando Cloudinary para archivos estáticos
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+
+# URL para los archivos media
+MEDIA_URL = '/media/'
+
+# Directorio local donde se guardarán los archivos media
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Si estás usando Cloudinary para archivos media
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Configuración de email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
