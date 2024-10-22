@@ -38,7 +38,7 @@ cloudinary.config(
 # Configuración para servir archivos estáticos y multimedia en producción
 #STATIC_URL = 'https://res.cloudinary.com/' + env('CLOUD_NAME') + '/static/'
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 #MEDIA_URL = 'https://res.cloudinary.com/' + env('CLOUD_NAME') + '/media/'
 
