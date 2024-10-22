@@ -2,8 +2,8 @@ from .base import *
 import os
 import environ
 import dj_database_url
-import cloudinary
-import cloudinary_storage
+# import cloudinary
+# import cloudinary_storage
 
 # Cargar las variables de entorno
 env = environ.Env()
@@ -27,30 +27,32 @@ DATABASES = {
 
 }
 
+STATIC_URL = 'https://stupendous-swan-ac7308.netlify.app/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Configuración de Cloudinary
-cloudinary.config(
-    cloud_name=env('CLOUD_NAME'),
-    api_key=env('API_KEY'),
-    api_secret=env('API_SECRET'),
-    secure=True
-)
+# cloudinary.config(
+#     cloud_name=env('CLOUD_NAME'),
+#     api_key=env('API_KEY'),
+#     api_secret=env('API_SECRET'),
+#     secure=True
+# )
 
 # Configuración para servir archivos estáticos y multimedia en producción
 #STATIC_URL = 'https://res.cloudinary.com/' + env('CLOUD_NAME') + '/static/'
 #STATIC_URL = '/static/'
-STATIC_URL = 'https://res.cloudinary.com/dj3octk7q/'
+# STATIC_URL = 'https://res.cloudinary.com/dj3octk7q/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
-#MEDIA_URL = 'https://res.cloudinary.com/' + env('CLOUD_NAME') + '/media/'
+# #MEDIA_URL = 'https://res.cloudinary.com/' + env('CLOUD_NAME') + '/media/'
 
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# Configuración para almacenamiento específico (opcional, para videos o archivos crudos)
-VIDEO_FILE_STORAGE = 'cloudinary_storage.storage.VideoMediaCloudinaryStorage'
-RAW_FILE_STORAGE = 'cloudinary_storage.storage.RawMediaCloudinaryStorage'
+# # Configuración para almacenamiento específico (opcional, para videos o archivos crudos)
+# VIDEO_FILE_STORAGE = 'cloudinary_storage.storage.VideoMediaCloudinaryStorage'
+# RAW_FILE_STORAGE = 'cloudinary_storage.storage.RawMediaCloudinaryStorage'
 
 # Configuración de email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
