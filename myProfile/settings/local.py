@@ -4,6 +4,7 @@ import environ
 import dj_database_url
 import cloudinary
 import cloudinary_storage
+
 # Cargar las variables de entorno
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
@@ -13,8 +14,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env.bool('DEBUG', default=False)
 
 # Hosts permitidos
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=["localhost", "sren94.up.railway.app"])
-#ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=["localhost"])
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=["localhost"])
 
 # Orígenes de confianza para CSRF
 CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[])
@@ -27,39 +27,22 @@ DATABASES = {
 }
 
 # Configuración de Cloudinary
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': env('CLOUD_NAME'),
-#     'API_KEY': env('API_KEY'),
-#     'API_SECRET': env('API_SECRET'),
-#     'PREFIX': 'static/'
-# }
-
 cloudinary.config(
     cloud_name=env('CLOUD_NAME'),
     api_key=env('API_KEY'),
     api_secret=env('API_SECRET'),
     secure=True,
 )
-#configuracion actualizada 
-#STATIC_URL = '/static/'
-#MEDIA_URL = '/media/'
-STATIC_URL = 'https://res.cloudinary.com/dj3octk7q/static/'
-MEDIA_URL = 'https://res.cloudinary.com/dj3octk7q/media/'
 
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# Configuración para servir archivos estáticos y multimedia en producción
+STATIC_URL = 'https://res.cloudinary.com/' + env('CLOUD_NAME') + '/static/'
+MEDIA_URL = 'https://res.cloudinary.com/' + env('CLOUD_NAME') + '/media/'
 
-# Almacenamiento de archivos estáticos en Cloudinary
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-
-# Almacenamiento específico para archivos multimedia en Cloudinary
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-# Almacenamiento específico para videos
-VIDEO_FILE_STORAGE = 'cloudinary_storage.storage.VideoMediaCloudinaryStorage'
 
-# Almacenamiento específico para archivos de texto
+# Configuración para almacenamiento específico (opcional, para videos o archivos crudos)
+VIDEO_FILE_STORAGE = 'cloudinary_storage.storage.VideoMediaCloudinaryStorage'
 RAW_FILE_STORAGE = 'cloudinary_storage.storage.RawMediaCloudinaryStorage'
 
 # Configuración de email
@@ -70,13 +53,99 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
+# Configuración de cookies y seguridad
+SECURE_SSL_REDIRECT = env.bool('SECURE_SSL_REDIRECT', default=True)
+SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', default=True)
+CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=True)
+
 # Configuración adicional
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Seguridad para producción
-SECURE_SSL_REDIRECT = env.bool('SECURE_SSL_REDIRECT', default=False)
-SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', default=False)
-CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=False)
+# Ruta de archivos estáticos en caso de usar localmente
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
+# from .base import *
+# import os
+# import environ
+# import dj_database_url
+# import cloudinary
+# import cloudinary_storage
+# # Cargar las variables de entorno
+# env = environ.Env()
+# environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+# # Clave secreta y configuración de depuración
+# SECRET_KEY = env('SECRET_KEY')
+# DEBUG = env.bool('DEBUG', default=False)
+
+# # Hosts permitidos
+# ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=["localhost", "sren94.up.railway.app"])
+# #ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=["localhost"])
+
+# # Orígenes de confianza para CSRF
+# CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[])
+
+# # Configuración de la base de datos
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.getenv('DATABASE_URL')
+#     )
+# }
+
+# # Configuración de Cloudinary
+# # CLOUDINARY_STORAGE = {
+# #     'CLOUD_NAME': env('CLOUD_NAME'),
+# #     'API_KEY': env('API_KEY'),
+# #     'API_SECRET': env('API_SECRET'),
+# #     'PREFIX': 'static/'
+# # }
+
+# cloudinary.config(
+#     cloud_name=env('CLOUD_NAME'),
+#     api_key=env('API_KEY'),
+#     api_secret=env('API_SECRET'),
+#     secure=True,
+# )
+# #configuracion actualizada 
+# #STATIC_URL = '/static/'
+# #MEDIA_URL = '/media/'
+# STATIC_URL = 'https://res.cloudinary.com/dj3octk7q/static/'
+# MEDIA_URL = 'https://res.cloudinary.com/dj3octk7q/media/'
+
+# #MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# # Almacenamiento de archivos estáticos en Cloudinary
+# STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+
+# # Almacenamiento específico para archivos multimedia en Cloudinary
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# # Almacenamiento específico para videos
+# VIDEO_FILE_STORAGE = 'cloudinary_storage.storage.VideoMediaCloudinaryStorage'
+
+# # Almacenamiento específico para archivos de texto
+# RAW_FILE_STORAGE = 'cloudinary_storage.storage.RawMediaCloudinaryStorage'
+
+# # Configuración de email
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True 
+# EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+
+# # Configuración adicional
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# # Seguridad para producción
+# SECURE_SSL_REDIRECT = env.bool('SECURE_SSL_REDIRECT', default=False)
+# SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', default=False)
+# CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=False)
 
 # from .base import *
 # import os
