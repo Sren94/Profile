@@ -24,7 +24,27 @@ DATABASES = {
     'default': dj_database_url.config(
         default=os.getenv('DATABASE_URL')
     )
+
 }
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'django_error.log'),
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}
+
 
 # Configuración de Cloudinary
 cloudinary.config(
@@ -35,8 +55,11 @@ cloudinary.config(
 )
 
 # Configuración para servir archivos estáticos y multimedia en producción
-STATIC_URL = 'https://res.cloudinary.com/' + env('CLOUD_NAME') + '/static/'
-MEDIA_URL = 'https://res.cloudinary.com/' + env('CLOUD_NAME') + '/media/'
+#STATIC_URL = 'https://res.cloudinary.com/' + env('CLOUD_NAME') + '/static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+#MEDIA_URL = 'https://res.cloudinary.com/' + env('CLOUD_NAME') + '/media/'
 
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
