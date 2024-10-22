@@ -32,13 +32,13 @@ cloudinary.config(
     cloud_name=env('CLOUD_NAME'),
     api_key=env('API_KEY'),
     api_secret=env('API_SECRET'),
-    secure=True,
+    secure=True
 )
 
 # Configuración para servir archivos estáticos y multimedia en producción
 #STATIC_URL = 'https://res.cloudinary.com/' + env('CLOUD_NAME') + '/static/'
 #STATIC_URL = '/static/'
-STATIC_URL = 'https://res.cloudinary.com/dj3octk7q/'
+STATIC_URL = 'https://res.cloudinary.com/dj3octk7q/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
