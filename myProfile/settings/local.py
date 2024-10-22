@@ -27,7 +27,7 @@ DATABASES = {
 
 }
 
-STATIC_URL = 'https://stupendous-swan-ac7308.netlify.app/'
+STATIC_URL = env('STATIC_URL')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Configuración de Cloudinary
 # cloudinary.config(
