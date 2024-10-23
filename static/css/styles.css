@@ -35,7 +35,6 @@ header {
     z-index: 1000;
     animation: slideInDown 0.5s ease-out;
 }
-
 nav ul {
     list-style: none;
     display: flex;
@@ -125,11 +124,12 @@ main {
 }
 
 .btn:hover, button:hover {
-    background-color: #ff8567;
+    background-color: var(--button-background);
     transform: translateY(-5px);
 }
 
 .image {
+    float: right;
     width: var(--intro-image-width);
     max-width: 400px;
 }
@@ -138,8 +138,18 @@ main {
     width: 100%;
     border-radius: 50%;
     border: 5px solid var(--primary-color);
+    /* animation: girar 5s linear infinite; */
+    
 }
-
+/* @keyframes girar {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  } */
+  
 .skills-section,
 .about-section,
 .contact-section {
@@ -400,9 +410,14 @@ form input, form textarea {
 }
 
 @media (max-width: 768px) {
-    
+    .about-section,.intro>p{
+        text-align: justify;
+    }
     .project-card, .skill
     {
+        width: 80%;
+    }
+    .certification-card{
         width: 80%;
     }
     .home-section {
@@ -439,8 +454,17 @@ form input, form textarea {
         padding: 0;
         
     }
-    main{
-        padding: 0 2rem;
+    .intro{
+        margin: 0 auto;
+        
+    }
+    .about-section, .skills-section{
+        width: 80%;
+    }
+    
+    .about-section ul{
+        text-align: justify;
+        padding: 0;
     }
     .projects-section{
         width: 100%;
@@ -451,6 +475,15 @@ form input, form textarea {
         padding: 0;
        
         width: 100%;
+    }
+    .certification-card
+    {
+        width: 70%;
+        padding: 0;
+        margin: 1.5rem;
+        padding:0 1.5rem ;
+
+       
     }
     .image_project img{
         width: 100%;

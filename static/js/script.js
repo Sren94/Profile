@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", function() {
     const typedTextSpan = document.querySelector(".typed-text");
     const cursorSpan = document.querySelector(".cursor");
@@ -7,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const textArray = ["Luis Rene Gabiño Hernandez"];
     const typingDelay = 200;
     const erasingDelay = 100;
-    const newTextDelay = 2000; // Delay between current and next text
+    const newTextDelay = 200000; // Delay between current and next text
     let textArrayIndex = 0;
     let charIndex = 0;
 
