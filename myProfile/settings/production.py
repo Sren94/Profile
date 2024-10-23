@@ -26,3 +26,11 @@ DATABASES = {
 #Carga De Archivos Estaticos
 STATIC_URL = env('STATIC_URL')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Configuración de email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True 
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
